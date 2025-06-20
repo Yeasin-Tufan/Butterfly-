@@ -20,7 +20,11 @@
     "ignoreCommand": []
   },
   "adminBot": [
-    "61552257412748"
+    "61552257412748",
+    "100058371606434",
+    "61566554077088",
+    "100044327656712",
+    "61568301181050"
   ],
   "whiteListMode": {
     "enable": false,
@@ -29,7 +33,10 @@
   },
   "whiteListModeThread": {
     "enable": false,
-    "whiteListThreadIds": [],
+    "whiteListThreadIds": [
+      "24398688633057066",
+      "9878724268887045"
+    ],
     "notes": "if you enable this feature, only the thread in the whiteListThreadIds list can use the bot",
     "how_it_work": "if you enable both whiteListMode and whiteListModeThread, the system will check if the user is in whiteListIds, then check if the thread is in whiteListThreadIds, if one of the conditions is true, the user can use the bot"
   },
@@ -56,11 +63,11 @@
   "dashBoard": {
     "enable": true,
     "expireVerifyCode": 300000,
-    "port": 3001
+    "port": 3010
   },
   "serverUptime": {
     "enable": false,
-    "port": 3001,
+    "port": 3010,
     "socket": {
       "enable": true,
       "channelName": "uptime",
@@ -78,7 +85,7 @@
     "notes": "the value of timeInterval is seconds, url is the url you want to send the request to (automatically detected for hosting glitch or replit)"
   },
   "autoLoadScripts": {
-    "enable": false,
+    "enable": true,
     "ignoreCmds": "",
     "ignoreEvents": "",
     "notes": "this feature will automatically load the script when scripts have been changed, you can set ignoreCmds to ignore commands, ignoreEvents to ignore events, separate by comma or space, example: \"cmd1.js cmd2.js cmd3.js\" (without backslash)"

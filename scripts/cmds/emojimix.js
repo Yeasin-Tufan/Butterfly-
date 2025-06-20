@@ -1,77 +1,38 @@
 const axios = require("axios");
+const fs = require("fs");
 
 module.exports = {
-	config: {
-		name: "emojimix",
-		version: "1.4",
-		author: "NTKhang",
-		countDown: 5,
-		role: 0,
-		description: {
-			vi: "Mix 2 emoji lại với nhau",
-			en: "Mix 2 emoji together"
-		},
-		guide: {
-			vi: "   {pn} <emoji1> <emoji2>"
-				+ "\n   Ví dụ:  {pn} 🤣 🥰",
-			en: "   {pn} <emoji1> <emoji2>"
-				+ "\n   Example:  {pn} 🤣 🥰"
-		},
-		category: "fun"
-	},
+  config: {
+    name: "emojimix",
+    aliases: ["mix"],
+    version: "1.3",
+    author: "Nyx",
+    description: "Mix two emojis into one image",
+    category: "fun",
+    usages: "[emoji1] - [emoji2]",
+    cooldowns: 5
+  },
 
-	langs: {
-		vi: {
-			error: "Rất tiếc, emoji %1 và %2 không mix được",
-			success: "Emoji %1 và %2 mix được %3 ảnh"
-		},
-		en: {
-			error: "Sorry, emoji %1 and %2 can't mix",
-			success: "Emoji %1 and %2 mix %3 images"
-		}
-	},
+  onStart: async function ({ message, args }) {
+    try {
+      if (!args) return message.reply("Example: 💔 - 🐢");
+      const [emoji1, emoji2] = args.join(" ").split("-").map(e => e.trim());
 
-	onStart: async function ({ message, args, getLang }) {
-		const readStream = [];
-		const emoji1 = args[0];
-		const emoji2 = args[1];
-
-		if (!emoji1 || !emoji2)
-			return message.SyntaxError();
-
-		const generate1 = await generateEmojimix(emoji1, emoji2);
-		const generate2 = await generateEmojimix(emoji2, emoji1);
-
-		if (generate1)
-			readStream.push(generate1);
-		if (generate2)
-			readStream.push(generate2);
-
-		if (readStream.length == 0)
-			return message.reply(getLang("error", emoji1, emoji2));
-
-		message.reply({
-			body: getLang("success", emoji1, emoji2, readStream.length),
-			attachment: readStream
-		});
-	}
+      if (!emoji1 || !emoji2)
+        return message.reply("Invalid format! Use: [emoji1] - [emoji2]");
+      const { data: base } = await axios.get("https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json");
+      const response = await axios.get(`${base.api}/emojimix`, {
+        params: { emoji1, emoji2 },
+        responseType: "arraybuffer"
+      });
+      const path = __dirname + "/cache/mixnx_" + Date.now() + ".png";
+      fs.writeFileSync(path, response.data);
+      message.reply({
+        body: `Here’s your mix of ${emoji1} and ${emoji2}!`,
+        attachment: fs.createReadStream(path)
+      }, () => fs.unlinkSync(path));
+    } catch (err) {
+      message.reply("error");
+    }
+  }
 };
-
-
-
-async function generateEmojimix(emoji1, emoji2) {
-	try {
-		const { data: response } = await axios.get("https://goatbotserver.onrender.com/taoanhdep/emojimix", {
-			params: {
-				emoji1,
-				emoji2
-			},
-			responseType: "stream"
-		});
-		response.path = `emojimix${Date.now()}.png`;
-		return response;
-	}
-	catch (e) {
-		return null;
-	}
-}

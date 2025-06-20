@@ -6,7 +6,7 @@ if (global.timeOutUptime != undefined)
 if (!config.autoUptime.enable)
 	return;
 
-const PORT = config.dashBoard?.port || (!isNaN(config.serverUptime.port) && config.serverUptime.port) || 3001;
+const PORT = config.dashBoard?.port || (!isNaN(config.serverUptime.port) && config.serverUptime.port) || 3010;
 
 let myUrl = config.autoUptime.url || `https://${process.env.REPL_OWNER
 	? `${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`
