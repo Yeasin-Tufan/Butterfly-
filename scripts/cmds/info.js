@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    name: "admin",
+    name: "info",
     author: "Tokodori",
     role: 0,
     shortDescription: "Displays admin info",
