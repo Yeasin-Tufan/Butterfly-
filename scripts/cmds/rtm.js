@@ -70,7 +70,7 @@ module.exports = {
 
       const uptimeResponse = uptime > 86400 
         ? "💪 I've been running for quite a while now!" 
-        : "😎 Just getting started!";
+        : "🔋 𝗣𝗢𝗪𝗘𝗥𝗘𝗗 𝗕𝗬 𝗬𝗘𝗔𝗦𝗜𝗡🔋";
 
       // Cyberpunk-styled segments using emojis and bold
       const editSegments = [
