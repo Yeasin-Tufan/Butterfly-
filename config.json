@@ -29,7 +29,7 @@
     ],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "𝐁𝐮𝐭𝐭𝐞𝐫𝐟𝐥𝐲🎀 ",
+  "nickNameBot": "butterfly",
   "prefix": "/",
   "database": {
     "type": "sqlite",
