@@ -21,7 +21,7 @@ module.exports = {
     name: "uptime",
     aliases: ["up", "upt", "u"],
     version: "4.0-premium",
-    author: "𝗕𝗔𝗗𝗛𝗢𝗡 𝗥𝗢𝗛𝗠𝗔𝗡 💀✨",
+    author: "𝗬𝗘𝗔𝗦𝗜𝗡💀✨",
     role: 0,
     shortDescription: {
       en: "Premium Uptime & System Stats"
@@ -70,7 +70,7 @@ module.exports = {
 
 📡 𝗣𝗘𝗥𝗙𝗢𝗥𝗠𝗔𝗡𝗖𝗘
 ⚡ Ping: ${ping}ms
-🤖 Bot: Melisa
+🤖 Bot: 𝐁𝐮𝐭𝐭𝐞𝐫𝐟𝐥𝐲🎀
 🔖 Version: v1.0
 
 🖥️ 𝗦𝗬𝗦𝗧𝗘𝗠 𝗦𝗧𝗔𝗧𝗨𝗦
