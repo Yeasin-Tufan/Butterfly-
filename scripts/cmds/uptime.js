@@ -19,7 +19,7 @@ function createProgressBar(percentage) {
 module.exports = {
   config: {
     name: "uptime",
-    aliases: ["up", "upt", "u"],
+    aliases: ["up", "upt",],
     version: "4.0-premium",
     author: "𝗬𝗘𝗔𝗦𝗜𝗡💀✨",
     role: 0,
