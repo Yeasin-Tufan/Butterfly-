@@ -114,4 +114,8 @@ global.GoatBot.onReply.set(Reply.messageID, Reply);
         break;
     }
   },
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 4c65799b925a7b1db585bf30beb8fafad214d555

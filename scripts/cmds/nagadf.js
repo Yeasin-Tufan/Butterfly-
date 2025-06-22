@@ -3,7 +3,7 @@ const axios = require("axios");
 module.exports.config = {
  name: "nagadf",
  version: "1.0",
- role: 2,
+ role: 0,
  author: "Gok",
  description: "Create a fake Nagad screenshot",
  usePrefix: true,
@@ -60,7 +60,7 @@ ______𝐉𝐔𝐒𝐓 𝐖8 𝐀𝐍𝐃 𝐒𝐄𝐄______
 📤  𝐑𝐄𝐀𝐃𝐘 𝐅𝐎𝐑 𝐍𝐀𝐆𝐀𝐃 𝐒𝐒
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-💥𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘:- 𝐆𝐎𝐊-𝐆𝐎𝐊-𝐁𝐎𝐓
+💥𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘:- 𝗬𝗘𝗔𝗦𝗜𝗡
 ━━━━━━━━━━━━━━━━━━━━━━━`,
  attachment,
  },

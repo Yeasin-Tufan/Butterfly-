@@ -2,7 +2,7 @@ const axios = require("axios");
 
 module.exports.config = {
  name: "bkashf",
- role: 2,
+ role: 0,
  author: "Gok",
  description: "Create a fake Bkash screenshot",
  usePrefix: true,

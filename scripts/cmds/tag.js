@@ -40,4 +40,8 @@ module.exports = {
   config, 
   onStart,
   run: onStart
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 4c65799b925a7b1db585bf30beb8fafad214d555
