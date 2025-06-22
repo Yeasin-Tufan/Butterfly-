@@ -177,8 +177,4 @@ module.exports.onStart = async function ({ api, args, event }) {
       );
     }
   }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 496583c049ece5b62c181d6a92e801e80c3de5c6
