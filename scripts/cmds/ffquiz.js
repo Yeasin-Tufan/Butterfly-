@@ -152,6 +152,7 @@ module.exports = {
         .map(([userID, data]) => ({
           userID,
           money: data.money || 0
+<<<<<<< HEAD
         }))
         .sort((a, b) => b.money - a.money)
         .slice(0, 10);
@@ -179,3 +180,6 @@ module.exports = {
     }
   }
 };
+=======
+        }
+>>>>>>> b2e74b9bc27d1ef3b6b8e67530eee1b8b9de01ab

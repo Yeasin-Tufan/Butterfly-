@@ -1,3 +1,4 @@
+Command executed successfully:
 const moment = require("moment-timezone");
 
 module.exports = {
@@ -129,8 +130,4 @@ module.exports = {
       });
     }, event.messageID);
   }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 4c65799b925a7b1db585bf30beb8fafad214d555
