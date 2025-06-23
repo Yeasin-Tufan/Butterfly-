@@ -69,8 +69,4 @@ module.exports = {
       return api.sendMessage("Invalid query. Use 'exp' to set experience points or 'money' to set coins.", threadID);
     }
   }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 4c65799b925a7b1db585bf30beb8fafad214d555
