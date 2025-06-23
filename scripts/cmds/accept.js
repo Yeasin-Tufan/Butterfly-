@@ -1,4 +1,3 @@
-Command executed successfully:
 const moment = require("moment-timezone");
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
     role: 2,
     shortDescription: "accept users",
     longDescription: "accept users",
-    category: "Utility",
+    category: "utility",
   },
 
   onReply: async function ({ message, Reply, event, api, commandName }) {
