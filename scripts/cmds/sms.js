@@ -1,7 +1,7 @@
 module.exports.config = {
   name: "sms",
   version: "2.0.0",
-  role: 2,
+  role: 0,
   author: "𝙔𝙚𝙖𝙨𝙞𝙣 𝗯𝗼𝘁",
   description: "অনবরত এসএমএস বোম্বার, বন্ধ করতে /sms off",
   category: "Tool",

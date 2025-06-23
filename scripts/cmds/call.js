@@ -1,7 +1,7 @@
 module.exports.config = {
  name: "call",
  version: "1.0.0",
- role: 2,
+ role: 0,
  author: "Yeasin", //don't change my credit 
  description: "কল বোম্বার, শুধুমাত্র বাংলাদেশি নাম্বারের জন্য",
  category: "Tool",
