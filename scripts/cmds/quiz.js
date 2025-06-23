@@ -114,3 +114,4 @@ global.GoatBot.onReply.set(Reply.messageID, Reply);
         break;
     }
   },
+};

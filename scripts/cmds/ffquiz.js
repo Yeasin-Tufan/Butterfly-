@@ -153,4 +153,29 @@ module.exports = {
           userID,
           money: data.money || 0
         }))
-        .sort((a, b)
+        .sort((a, b) => b.money - a.money)
+        .slice(0, 10);
+
+      let leaderboard = "🏆 Top 10 Players 🏆\n\n";
+      topUsers.forEach((user, index) => {
+        leaderboard += `${index + 1}. ${user.userID} - ${user.money} coins\n`;
+      });
+
+      await message.reply(leaderboard);
+    } catch (error) {
+      console.error("Leaderboard error:", error);
+      await message.reply("Failed to fetch leaderboard. Please try again later.");
+    }
+  },
+
+  checkAuthor: async function (originalAuthor) {
+    try {
+      // Implement your author verification logic here
+      // For now, just return true to skip the check
+      return true;
+    } catch (error) {
+      console.error("Author check error:", error);
+      return false;
+    }
+  }
+};

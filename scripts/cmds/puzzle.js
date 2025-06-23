@@ -147,4 +147,16 @@ async function createNumberedImage(parts, width, height) {
 }
 
 function isPuzzleSolved(shuffledParts) {
-  for 
+  for (let i = 0; i < shuffledParts.length; i++) {
+    if (shuffledParts[i].canvas !== originalParts[i].canvas) {
+      return false;
+    }
+  }
+  return true;
+}
+
+async function saveImageToCache(imageBuffer) {
+  const imagePath = path.join(cacheDir, `puzzle_${Date.now()}.png`);
+  await fs.promises.writeFile(imagePath, imageBuffer);
+  return imagePath;
+}
