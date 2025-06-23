@@ -8,7 +8,7 @@ aliases: ["mathrace", "গণিত", "math", "গেমগণিত"],
 
 version: "1.2",
 
-author: "Yeasin (Bangla + English)",
+author: "Saim (Bangla + English)",
 
 countDown: 0,
 
