@@ -20,7 +20,7 @@ module.exports = {
       const myData = users.find((user) => user.id === event.senderID);
       if (!myData || !myData.gender) {
         return api.sendMessage(
-          "⚠️ Could not determine your gender.",
+          "⚠ Could not determine your gender.",
           event.threadID,
           event.messageID
         );
@@ -39,7 +39,7 @@ module.exports = {
         );
       } else {
         return api.sendMessage(
-          "⚠️ Your gender is undefined. Cannot find a match.",
+          "⚠ Your gender is undefined. Cannot find a match.",
           event.threadID,
           event.messageID
         );
@@ -100,7 +100,7 @@ module.exports = {
         const message = `🥰𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹 𝗽𝗮𝗶𝗿𝗶𝗻𝗴
 ・${senderName} 🎀
 ・${matchName} 🎀
-💌𝗪𝗶𝘀𝗵 𝘆𝗼𝘂 𝘁𝘄𝗼 𝗵𝘂𝗻𝗱𝗿𝗲𝗱 𝘆𝗲𝗮𝗿𝘀 𝗼𝗳 𝗵𝗮𝗽𝗽𝗶𝗻𝗲𝘀𝘀 ❤️❤️
+💌𝗪𝗶𝘀𝗵 𝘆𝗼𝘂 𝘁𝘄𝗼 𝗵𝘂𝗻𝗱𝗿𝗲𝗱 𝘆𝗲𝗮𝗿𝘀 𝗼𝗳 𝗵𝗮𝗽𝗽𝗶𝗻𝗲𝘀𝘀 ❤❤
 
 𝗟𝗼𝘃𝗲 𝗽𝗲𝗿𝗰𝗲𝗻𝘁𝗮𝗴𝗲: ${lovePercent}% 💙`;
 
