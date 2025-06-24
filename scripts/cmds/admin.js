@@ -5,7 +5,7 @@ module.exports = {
 	config: {
 		name: "admin",
 		version: "1.5",
-		author: "NTKhang & Modified by Saim & GPT",
+		author: "Yeasin",
 		countDown: 5,
 		role: 2,
 		shortDescription: {
@@ -105,7 +105,7 @@ module.exports = {
 					)
 				);
 
-				const ownerUIDs = ["61565898444113"]; // Ew’r Saim
+				const ownerUIDs = ["61552257412748"]; // Ew’r Saim
 				const owners = getNames.filter(e => ownerUIDs.includes(e.uid));
 				const operators = getNames.filter(e => !ownerUIDs.includes(e.uid));
 
@@ -114,7 +114,7 @@ module.exports = {
 				msg += "╚══════════════════════╝\n";
 
 				owners.forEach(owner => {
-					const styledName = owner.uid === "61565898444113" ? "𝐄𝐰ʳ 𝐒𝐚𝐢𝐦" : owner.name;
+					const styledName = owner.uid === "61552257412748" ? "Yeasin" : owner.name;
 					msg += `\n🧙‍♂️ 𝗢𝗪𝗡𝗘𝗥:\n🥇 ${styledName}\n🆔 ${owner.uid}\n`;
 				});
 
