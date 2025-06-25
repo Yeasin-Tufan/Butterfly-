@@ -6,7 +6,7 @@ module.exports = {
 	config: {
 		name: "welcome",
 		version: "1.7",
-		author: "Yeasin",
+		author: "NTKhang",
 		category: "events"
 	},
 
@@ -22,21 +22,14 @@ module.exports = {
 			defaultWelcomeMessage: "Xin chào {userName}.\nChào mừng bạn đến với {boxName}.\nChúc bạn có buổi {session} vui vẻ!"
 		},
 		en: {
-			session1: "𝑴𝒐𝒓𝑵𝒊𝒏𝑮",
-			session2: "𝑵𝒐𝒐𝑵",
-			session3: "𝑨𝒇𝒕𝒆𝑹𝒏𝒐𝒐𝑵",
-			session4: "𝑬𝒗𝒆𝑵𝒊𝒏𝑮",
-			session5: "𝑵𝒊𝒈𝑯𝒕",
-			welcomeMessage: `𝐀𝐒𝐀𝐋𝐀𝐌𝐔𝐖𝐀𝐋𝐈𝐊𝐔𝐌 ꨄ︎\n	 `
-				+ `\n ♻ 𝑻𝒉𝑬 𝑩𝒐𝑻 𝑯𝒂𝑺 𝑩𝒆𝒆𝑵 𝑪𝒐𝒏𝒏𝑬𝒄𝒕𝒆𝑫 𝑻𝒐 𝑻𝒉𝑬 𝑮𝒓𝒐𝑼𝒑 ⚜`
-				+ `\n ⚜🔹𝑩𝒐𝑻 𝑷𝒓𝒆𝑭𝒊𝒙🔹: %1`
-				+ `\n __________________________`
-				+ `\n ~𝑶𝒘𝑵𝒆𝒓🔹:https://www.facebook.com/61552257412748`
-				+ `\n __________________________`
-				+ `\n 💠|❇ 𝑻𝒐 𝑽𝒊𝒆𝑾 𝑪𝒐𝒎𝒎𝑨𝒎𝒅𝑺 𝑷𝒍𝒆𝑨𝒔𝑬 𝑬𝒏𝒕𝑬𝒓: %1help`,
-			multiple1: "𝑻𝒐 𝑻𝒉𝑬",
-			multiple2: "𝑻𝒐 𝑶𝒖𝑹",
-			defaultWelcomeMessage: `𝐀𝐒𝐀𝐋𝐀𝐌𝐔𝐖𝐀𝐋𝐈𝐊𝐔𝐌ꨄ︎\n 	 \n~🦋 𝐇𝐄𝐋𝐋𝐎 ❀ {userName}.\n~😽𝐖𝐄𝐋𝐂𝐎𝐌𝐄 {multiple} 𝑪𝒉𝒂𝑻 𝑮𝒓𝒐𝑼𝒑:{boxName} \n~💫𝑾𝒊𝒔𝑯𝒊𝒏𝑮 𝑾𝒆 𝑨 𝑳𝒐𝒗𝑬𝒍𝒀 {session} 😜`
+			session1: "morning",
+			session2: "noon",
+			session3: "afternoon",
+			session4: "evening",
+			welcomeMessage: "Thank you for inviting me to the group!\nBot prefix: %1\nTo view the list of commands, please enter: %1help",
+			multiple1: "you",
+			multiple2: "you guys",
+			defaultWelcomeMessage: `Hello {userName}.\nWelcome {multiple} to the chat group: {boxName}\nHave a nice {session} 😊`
 		}
 	},
 
