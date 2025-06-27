@@ -36,65 +36,69 @@ module.exports = {
 		switch (args[0]) {
 			case "add":
 			case "-a": {
-				if (args[1]) {
-					let uids = [];
-					if (Object.keys(event.mentions).length > 0)
-						uids = Object.keys(event.mentions);
-					else if (event.messageReply)
-						uids.push(event.messageReply.senderID);
+				let uids = [];
+				if (Object.keys(event.mentions).length > 0)
+					uids = Object.keys(event.mentions);
+				else if (event.messageReply)
+					uids.push(event.messageReply.senderID);
+				else
+					uids = args.slice(1).filter(arg => !isNaN(arg));
+
+				if (uids.length === 0) return message.reply(getLang("missingIdAdd"));
+
+				const notAdminIds = [];
+				const alreadyAdmins = [];
+
+				for (const uid of uids) {
+					if (config.adminBot.includes(uid))
+						alreadyAdmins.push(uid);
 					else
-						uids = args.filter(arg => !isNaN(arg));
-
-					const notAdminIds = [];
-					const alreadyAdmins = [];
-
-					for (const uid of uids) {
-						if (config.adminBot.includes(uid))
-							alreadyAdmins.push(uid);
-						else
-							notAdminIds.push(uid);
-					}
-
-					config.adminBot.push(...notAdminIds);
-					writeFileSync(global.client.dirConfig, JSON.stringify(config, null, 2));
-
-					const getNames = await Promise.all(uids.map(uid => usersData.getName(uid).then(name => ({ uid, name }))));
-					return message.reply(
-						(notAdminIds.length > 0 ? getLang("added", notAdminIds.length, getNames.filter(u => notAdminIds.includes(u.uid)).map(u => `• ${u.name} (${u.uid})`).join("\n")) : "") +
-						(alreadyAdmins.length > 0 ? getLang("alreadyAdmin", alreadyAdmins.length, alreadyAdmins.map(uid => `• ${uid}`).join("\n")) : "")
-					);
+						notAdminIds.push(uid);
 				}
-				else return message.reply(getLang("missingIdAdd"));
+
+				config.adminBot.push(...notAdminIds);
+				writeFileSync(global.client.dirConfig, JSON.stringify(config, null, 2));
+
+				const getNames = await Promise.all(
+					uids.map(uid => usersData.getName(uid).then(name => ({ uid, name })))
+				);
+
+				return message.reply(
+					(notAdminIds.length > 0 ? getLang("added", notAdminIds.length, getNames.filter(u => notAdminIds.includes(u.uid)).map(u => `• ${u.name} (${u.uid})`).join("\n")) : "") +
+					(alreadyAdmins.length > 0 ? getLang("alreadyAdmin", alreadyAdmins.length, alreadyAdmins.map(uid => `• ${uid}`).join("\n")) : "")
+				);
 			}
 
 			case "remove":
 			case "-r": {
-				if (args[1]) {
-					let uids = [];
-					if (Object.keys(event.mentions).length > 0)
-						uids = Object.keys(event.mentions);
-					else
-						uids = args.filter(arg => !isNaN(arg));
+				let uids = [];
+				if (Object.keys(event.mentions).length > 0)
+					uids = Object.keys(event.mentions);
+				else
+					uids = args.slice(1).filter(arg => !isNaN(arg));
 
-					const removed = [];
-					const notAdmin = [];
+				if (uids.length === 0) return message.reply(getLang("missingIdRemove"));
 
-					for (const uid of uids) {
-						if (config.adminBot.includes(uid)) {
-							config.adminBot.splice(config.adminBot.indexOf(uid), 1);
-							removed.push(uid);
-						} else notAdmin.push(uid);
-					}
+				const removed = [];
+				const notAdmin = [];
 
-					writeFileSync(global.client.dirConfig, JSON.stringify(config, null, 2));
-					const getNames = await Promise.all(removed.map(uid => usersData.getName(uid).then(name => ({ uid, name }))));
-
-					return message.reply(
-						(removed.length > 0 ? getLang("removed", removed.length, getNames.map(u => `• ${u.name} (${u.uid})`).join("\n")) : "") +
-						(notAdmin.length > 0 ? getLang("notAdmin", notAdmin.length, notAdmin.map(uid => `• ${uid}`).join("\n")) : "")
-					);
+				for (const uid of uids) {
+					if (config.adminBot.includes(uid)) {
+						config.adminBot.splice(config.adminBot.indexOf(uid), 1);
+						removed.push(uid);
+					} else notAdmin.push(uid);
 				}
-				else return message.reply(getLang("missingIdRemove"));
+
+				writeFileSync(global.client.dirConfig, JSON.stringify(config, null, 2));
+
+				const getNames = await Promise.all(
+					removed.map(uid => usersData.getName(uid).then(name => ({ uid, name })))
+				);
+
+				return message.reply(
+					(removed.length > 0 ? getLang("removed", removed.length, getNames.map(u => `• ${u.name} (${u.uid})`).join("\n")) : "") +
+					(notAdmin.length > 0 ? getLang("notAdmin", notAdmin.length, notAdmin.map(uid => `• ${uid}`).join("\n")) : "")
+				);
 			}
 
 			case "list":
@@ -105,7 +109,7 @@ module.exports = {
 					)
 				);
 
-				const ownerUIDs = ["61552257412748"]; // Ew’r Saim
+				const ownerUIDs = ["61577232734216"]; // Yeasin only
 				const owners = getNames.filter(e => ownerUIDs.includes(e.uid));
 				const operators = getNames.filter(e => !ownerUIDs.includes(e.uid));
 
@@ -114,7 +118,7 @@ module.exports = {
 				msg += "╚══════════════════════╝\n";
 
 				owners.forEach(owner => {
-					const styledName = owner.uid === "61577232734216" ? "Yeasin" : owner.name;
+					const styledName = owner.name === "Yeasin" || owner.uid === "61577232734216" ? "Yeasin" : owner.name;
 					msg += `\n🧙‍♂️ 𝗢𝗪𝗡𝗘𝗥:\n🥇 ${styledName}\n🆔 ${owner.uid}\n`;
 				});
 
@@ -137,7 +141,7 @@ module.exports = {
 			}
 
 			default:
-				return message.SyntaxError();
+				return message.SyntaxError ? message.SyntaxError() : message.reply("⚠️ Invalid command usage.");
 		}
 	}
 };
