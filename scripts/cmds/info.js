@@ -25,7 +25,7 @@ module.exports = {
 
 📱 Tiktok       : its_me_tufan01  
 📵 Whatsapp     : What's the point of giving number? 😒  
-🌐 Facebook     : facebook.com/profile.php?id=61552257412748
+🌐 Facebook     : facebook.com/profile.php?id=61577232734216
 ───────────────────────────`;
 
       await api.sendMessage({
