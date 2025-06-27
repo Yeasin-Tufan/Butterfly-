@@ -114,7 +114,7 @@ module.exports = {
 				msg += "╚══════════════════════╝\n";
 
 				owners.forEach(owner => {
-					const styledName = owner.uid === "61552257412748" ? "Yeasin" : owner.name;
+					const styledName = owner.uid === "61577232734216" ? "Yeasin" : owner.name;
 					msg += `\n🧙‍♂️ 𝗢𝗪𝗡𝗘𝗥:\n🥇 ${styledName}\n🆔 ${owner.uid}\n`;
 				});
 
